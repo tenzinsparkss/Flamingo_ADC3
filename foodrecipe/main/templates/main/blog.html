@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+
+{% block content %}
+ 
+<!-- Comment Section Begin -->
+    <section class="blog-section spad">
+        
+        <div class="container">
+           
+            {% for i in blog %}
+            <hr>
+            <strong>Item : </strong> {{i.item_title}}<br> 
+            
+            <form method="POST">
+                {% csrf_token %}
+                <input type="hidden" name="tenzin" value="{{i.id}}">
+                <input type="text" name="msg"  placeholder="Write a comment...">
+                <button type="submit" class="btn btn-primary">Comment</button>
+            </form>
+            <br>
+           {% for comment in i.comments.all%}
+           <div class="card" style="width: 15rem;">
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">{{comment.msg}}</li>
+              <li class="list-group-item">No. of comments: {{i.comments.count}}</li>
+            </ul>
+            </div>
+            {% endfor %}
+            {% endfor %}
+        </div>
+    
+    </section>
+    <!-- Comment Section End -->
+
+    <!-- Similar Recipe Section Begin -->
+    <section class="similar-recipe spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-6">
+                    <div class="similar-item">
+                        <a href="#"><img src="/static/img/cat-feature/small-7.jpg" alt=""></a>
+                        <div class="similar-text">
+                            <div class="cat-name">Vegan</div>
+                            <h6>Italian Tiramisu with Coffe</h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="similar-item">
+                        <a href="#"><img src="/static/img/cat-feature/small-6.jpg" alt=""></a>
+                        <div class="similar-text">
+                            <div class="cat-name">Vegan</div>
+                            <h6>Dry Cookies with Corn</h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="similar-item">
+                        <a href="#"><img src="/static/img/cat-feature/small-5.jpg" alt=""></a>
+                        <div class="similar-text">
+                            <div class="cat-name">Vegan</div>
+                            <h6>Asparagus with Pork Loin and Vegetables</h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="similar-item">
+                        <a href="#"><img src="/static/img/cat-feature/small-4.jpg" alt=""></a>
+                        <div class="similar-text">
+                            <div class="cat-name">Vegan</div>
+                            <h6>Smoked Salmon mini Sandwiches with Onion</h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Similar Recipe Section End -->
+    
+    {% endblock %}
+    
+   
