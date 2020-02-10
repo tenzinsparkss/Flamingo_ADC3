@@ -40,7 +40,7 @@
                   <div class="nav-menu">
                       <nav class="main-menu mobile-menu">
                           <ul>
-                              <li class="active"><a href="{% url 'main:blog' %}">Home</a></li>
+                              <li><a href="{% url 'main:blog' %}">Home</a></li>
                               <li><a href="#">Pages</a>
                                   <ul class="sub-menu">
                                       <li><a href="{% url 'main:additems' %}">Add an item</a></li>
@@ -54,7 +54,7 @@
                                   </ul>
                               </li>
                               {% if user.is_authenticated %}
-                              <li><a href="{% url 'main:register' %}">Hi, {{user.email}}</a></li>
+                              <li class="active"><a href="{% url 'main:register' %}">Hi, {{user.email}}</a></li>
                               <li><a href="{% url 'main:logout' %}">Log out</a></li>
                               
                               {% else %}
