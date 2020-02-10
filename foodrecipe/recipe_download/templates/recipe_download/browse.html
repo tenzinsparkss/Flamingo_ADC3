@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<body>
+
+
+    <!-- Recipe Section Begin -->
+    {% for r in recipe_videos  %}
+
+    <section class="recipe-section spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-sm-6">
+                    <div class="recipe-item">
+                        <video width='300' controls>
+                            <source src='{{ MEDIA_URL }}{{ r.videos }}' type='video/mp4'>
+                        </video>
+                        <div class="ri-text">
+                            <div class="cat-name">{{r.title}}</div>
+                            <a href="#">
+                                <h4>{{r.name}}</h4>
+                            </a>
+                            <p>{{r.info}}</p>
+                            <a href="{{r.videos.url}}" download class="card-link"> Download now</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                    <div class="recipe-item">
+                        <video width='300' controls>
+                            <source src='{{ MEDIA_URL }}{{ r.videos }}' type='video/mp4'>
+                        </video>
+                        <div class="ri-text">
+                            <div class="cat-name">{{r.title}}</div>
+                            <a href="#">
+                                <h4>{{r.name}}</h4>
+                            </a>
+                            <p>{{r.info}}</p>
+                            <a href="{{r.videos.url}}" download class="card-link"> Download now</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                    <div class="recipe-item">
+                        <video width='300' controls>
+                            <source src='{{ MEDIA_URL }}{{ r.videos }}' type='video/mp4'>
+                        </video>
+                        <div class="ri-text">
+                            <div class="cat-name">{{r.title}}</div>
+                            <a href="#">
+                                <h4>{{r.name}}</h4>
+                            </a>
+                            <p>{{r.info}}</p>
+                                <a href="{{r.videos.url}}" download class="card-link"> Download now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    {% endfor %}
+    <!-- Recipe Section End -->
+   
+</body>
+
+{% endblock %}
+
+</html>
