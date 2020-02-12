@@ -2,7 +2,7 @@ from django.test import TestCase
 from .models import Feedback
 
 # Create your tests here.
-class FeedbackTestCase:
+class FeedbackTest(TestCase):
     def setUp(self):
         Feedback.objects.create(feedback_email = "karma@gmail.com", subject = "food")
         Feedback.objects.create(feedback_email = "yangji@gmail.com", subject="meat")

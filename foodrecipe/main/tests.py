@@ -4,7 +4,7 @@ from .models import Recipe, Comment, User, Item
 # Create your tests here.
 
 # Recipe model Test Case
-class RecipeTestCase:
+class RecipeTest(TestCase):
     def setUp(self):
         Recipe.objects.create(recipe_title="tsampa", recipe_category="wheat")
         Recipe.objects.create(reciep_title="yaksha", recipe_category="meat")
@@ -16,11 +16,11 @@ class RecipeTestCase:
         self.assertEqual(yaksha.food(), 'This yaksha made of "meat"')
 
 # Comment model Test Case
-class CommentTestCase:
+class CommentTest(TestCase):
     def setUp(self):
         u_obj = User.objects.create(username = "Tenzin", email = "tenzin@gmail.com")
         # i_obj = Item.objects.create(item_title = "Momos")
-        c_obj = Comment.objects.create(msg = "beautiful", commented_by = "u_obj", item = "i_obj")
+        c_obj = Comment.objects.create(msg = "beautiful", commented_by = u_obj, item = i_obj)
 
     def test_comment(self):
         user = User.objects.get(username = "Tenzin")

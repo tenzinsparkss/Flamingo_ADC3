@@ -1,9 +1,9 @@
 from django.test import TestCase
-from .models import Recipe_Video
+from . models import Recipe_Video
 
 
 # Create your tests here.
-class DownloadTestCase:
+class DownloadTest(TestCase):
     def setUp(self):
         Recipe_Video.objects.create(title="spaghetti", name = "pasta")
         Recipe_Video.objects.create(title="chicken sizzler", name = "sizzler")
